@@ -3,6 +3,7 @@ package com.example.rest.repository;
 import com.example.rest.model.Authorities;
 import org.springframework.stereotype.Repository;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +16,7 @@ public class UserRepository {
 
     public List<Authorities> getUserAuthorities(String user, String password) {
         return users.containsKey(user) && users.get(user).equals(password)
-                ? List.of(Authorities.DELETE, Authorities.WRITE, Authorities.READ)
+                ? Arrays.asList(Authorities.values())
                 : Collections.emptyList();
     }
 
